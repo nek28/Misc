@@ -38,11 +38,11 @@ void print_matrix(int **matrix, size_t sz){
 //get a list of edges and display the adjecency matrix
 int main(){
     //the number of edges is given
-    int num_edges;
-    cin >> num_edges;
+    int num_vertices;
+    cin >> num_vertices;
 
     //initialize the matrix
-    int **M = sq_matrix(num_edges);
+    int **M = sq_matrix(num_vertices);
 
     vector<int> edges;
     int current;
@@ -50,9 +50,9 @@ int main(){
         edges.push_back(current);
     
     for(int i = 0; i < edges.size(); i += 2)
-        edge(M, num_edges, edges[i], edges[i+1]);
+        edge(M, num_vertices, edges[i], edges[i+1]);
     
-    print_matrix(M, num_edges);
+    print_matrix(M, num_vertices);
 
     return 0;
 }
