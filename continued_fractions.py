@@ -11,13 +11,18 @@ def continued(A):
     for dig in A:
         diglen = len(str(dig))
 
+        # The 3 is because of the two empty places around +, the plus itself and the length of the number
+        # that's the indentation factor after each iteration
         dashes -= diglen + 3
 
+        #prints the empty spaces before the beginning of the n-th line
         for i in range(padding):
             print(' ', end='')
 
         print(str(dig),end='')
         
+        #does this for every number except the last one
+        #(places the "+" and the 1 at the appropriate place for the next row
         if dashes > 0:
             print(' + ',end='')
 
