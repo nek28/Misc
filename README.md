@@ -1,4 +1,3 @@
-# hello-world
-Hello!
+# Miscellaneous
 
-My name is the most amazing of names in this entire universe and so I am blessed to tell you of it.
+Some random pieces of code that I would need for some particular task.
