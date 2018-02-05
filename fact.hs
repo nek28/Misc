@@ -2,6 +2,7 @@
 module Fact where
 
 import Prelude hiding (gcd, lcm)
+import Data.Monoid
 
 type Factorization = [Int]
 
@@ -55,3 +56,9 @@ lcm xs [] = xs
   | x < y = False
   | otherwise = xs <| ys
 _ <| _ = False
+
+square :: Factorization -> Factorization
+square n = n <> n
+
+greatestDiv :: Factorization -> Factorization
+greatestDiv n = drop 1 n
