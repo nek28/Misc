@@ -62,3 +62,7 @@ square n = n <> n
 
 greatestDiv :: Factorization -> Factorization
 greatestDiv n = drop 1 n
+
+isSquare :: Factorization -> Bool
+isSquare [] = True
+isSquare (x:xs) = ((length (takeWhile (== x) (x:xs))) `mod` 2 == 0) && isSquare (dropWhile (== x) xs)
