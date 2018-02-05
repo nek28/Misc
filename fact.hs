@@ -60,6 +60,9 @@ _ <| _ = False
 square :: Factorization -> Factorization
 square n = n <> n
 
+power :: Int -> Factorization -> Factorization
+power n fac = mconcat (replicate n fac)
+
 greatestDiv :: Factorization -> Factorization
 greatestDiv n = drop 1 n
 
