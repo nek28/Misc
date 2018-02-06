@@ -5,6 +5,8 @@ import Prelude hiding (gcd, lcm)
 import Data.Monoid
 
 type Factorization = [Int]
+type Times = Int
+type Prime = Int
 
 instance {-# OVERLAPPING #-} Monoid Factorization where
   mempty = []
@@ -69,3 +71,18 @@ greatestDiv n = drop 1 n
 isSquare :: Factorization -> Bool
 isSquare [] = True
 isSquare (x:xs) = ((length (takeWhile (== x) (x:xs))) `mod` 2 == 0) && isSquare (dropWhile (== x) xs)
+
+group :: Factorization -> [(Prime,Times)]
+group [] = []
+group (x:xs) = (x,length (takeWhile (==x) (x:xs))) : group (dropWhile (== x) (x:xs))
+
+numDiv :: Factorization -> Int
+numDiv n = foldr (\x y -> (snd x + 1)*y) 1 k
+  where k = group n
+
+numPropDiv :: Factorization -> Int
+numPropDiv n = numDiv n - 2
+
+--another way to find primes
+primes2 :: [Int]
+primes2 = [toint n | n <- (map factorize [1..]), numPropDiv n == 0]
